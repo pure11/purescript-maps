@@ -93,7 +93,10 @@ namespace Data_StrMap {
 
   // foreign import empty :: forall a. StrMap a
   //
-  const any empty = make_managed<StrMap>();
+  auto empty(any::as_thunk) -> const any& {
+    static const any the_value = make_managed<StrMap>();
+    return the_value;
+  }
 
   // foreign import size :: forall a. StrMap a -> Number
   //

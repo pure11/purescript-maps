@@ -46,7 +46,7 @@ namespace Data_StrMap {
 
   // foreign import empty :: forall a. StrMap a
   //
-  extern const any empty;
+  auto empty(any::as_thunk) -> const any&;
 
   // foreign import size :: forall a. StrMap a -> Number
   //
